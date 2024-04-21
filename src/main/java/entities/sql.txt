@@ -1,0 +1,43 @@
+CREATE TABLE artists (
+    artist_id INT AUTO_INCREMENT PRIMARY KEY,
+    first_name VARCHAR(100) NOT NULL,
+    last_name VARCHAR(100) NOT NULL,
+    instrument VARCHAR(100)
+);
+CREATE TABLE cds (
+    cd_id INT AUTO_INCREMENT PRIMARY KEY,
+    title VARCHAR(255) NOT NULL,
+    description TEXT,
+    year YEAR,
+    price DECIMAL(10, 2),
+    artist_id INT,
+    FOREIGN KEY (artist_id) REFERENCES artists(artist_id)
+);
+INSERT INTO artists (first_name, last_name, instrument) VALUES
+    ('Sushin', 'Shyam', 'Guitar'),
+    ('Vishnu', 'Vijay', 'Bass'),
+    ('Rex', 'Vijayan', 'Guitar'),
+    ('Shann', 'Rahman', 'Drums');
+
+INSERT INTO cds (title, description, year, price, artist_id) VALUES
+    ('Kannur Squard', 'Mammoty', 2023, 25.99, 1),
+    ('Premalu', 'Naslen', 2024, 22.50, 2),
+    ('Mannjumel Boys', 'Soubin', 2024, 20.75, NULL),
+    ('Mayanadi', 'Tovino', 2018, 18.99, NULL);
+    ('Thattam', 'Nivin', 2017, 18.99, NULL);
+
+CREATE TABLE cd_artists (
+    cd_id INT,
+    artist_id INT,
+    PRIMARY KEY (cd_id, artist_id),
+    FOREIGN KEY (cd_id) REFERENCES cds(cd_id),
+    FOREIGN KEY (artist_id) REFERENCES artists(artist_id)
+);
+INSERT INTO cd_artists (cd_id, artist_id) VALUES
+    (1, 1),
+    (1, 2),
+    (1, 3),
+    (1, 4),
+    (2, 1),
+    (2, 2);
+
