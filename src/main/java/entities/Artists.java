@@ -2,15 +2,17 @@ package entities;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
 @Entity
-public class artists {
+@Table(name = "artists")
+public class Artists {
     @Id
     private Long id;
     private String name;
     private String instrument;
 
-    public artists() {
+    public Artists() {
     }
 
     public Long getId() {

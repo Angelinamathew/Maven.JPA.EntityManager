@@ -2,10 +2,13 @@ package entities;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
 @Entity
-public class cds {
+@Table(name = "cds")
+public class Cds {
     @Id
+
     private Long cd_id;
     private String title;
     private String description;
@@ -13,7 +16,7 @@ public class cds {
     private Double price;
     private int artist_id;
 
-    public cds() {
+    public Cds() {
     }
 
     public Long getCd_id() {
